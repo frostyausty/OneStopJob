@@ -5,3 +5,9 @@
     padding: 170px 1.5em 0.5em 1.5em;
     font-family: 'Bebas Neue', 'arial';
 }
+
+.job-post {
+    border: solid;
+    padding: 10px;
+    margin: 5px 10px 5px 10px;
+}

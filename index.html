@@ -18,25 +18,16 @@
 
     <main>
         <div>
-            Job Title or Keyword
-            <form>
-                <input type="text"> 
+            <form id="user-form">
+                <label for="keyword" class="form-label">Job Title or Keyword: </label>
+                <input name="keyword" id="keyword" type="text">
+                <label for="location" class="form-label">Location: </label>
+                <input name="location" id="location" type="text">
+                <label for="radius" class="form-label">Search Radius :</label>
+                <input class="slider is-fullwidth is-success is-circle" step="1" min="1" max="50" value="25" type="range">
+                <button type="submit" class="btn">Search</button>
             </form>
         </div>
-        <div>
-            Location
-            <form>
-                <input type="text">
-            </form>
-        </div>
-        <div>
-            <input class="slider is-fullwidth is-success is-circle" step="1" min="1" max="50" value="25" type="range">
-            <p>Search radius</p>
-        </div>
-         <button>
-              Search
-          </button>
-      
       <div class="job-list"></div>
     </main>
     <script src="assets/js/script.js"></script>

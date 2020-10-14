@@ -3,7 +3,22 @@
 var keyword = "javascript";
 var where = "minneapolis";
 
+
+var userFormEl = document.querySelector("#user-form");
+var userkeywordEl = document.querySelector("#keyword");
 var jobList = document.querySelector(".job-list");
+
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+
+    var keyword = userkeywordEl.value.trim();
+    if (keyword) {
+        getAdzunaJobs(keyword);
+        userkeywordEl.value = "";
+    } else {
+        alert("Please enter a Job Title or Keyword!");
+    }
+};
 
 
 var getAdzunaJobs = function(keyword) {
@@ -16,7 +31,7 @@ var getAdzunaJobs = function(keyword) {
                     console.log(data.results);
                     for (i=0;i<data.results.length;i++) {
                         var jobPost = document.createElement("div");
-                        jobPost.classList.add("job-post-" + i);
+                        jobPost.classList.add("job-post", "job-post-" + i);
                         jobList.appendChild(jobPost);
                         var jobTitleEl = document.querySelector(".job-post-" + i);
                         //var companyTitleEl = document.querySelector("");
@@ -41,6 +56,8 @@ var getAdzunaJobs = function(keyword) {
             };
         });
 };
+
+userFormEl.addEventListener("submit", formSubmitHandler);
 
 // fetch adzuna api
 
