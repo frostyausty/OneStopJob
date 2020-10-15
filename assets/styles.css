@@ -1,3 +1,29 @@
+
+.img-1 {
+    background-image: url(./images/hands.jpg);
+    opacity: 0.5;
+    width: 600px;
+    height: 380px;
+    position: absolute;
+    right: 50px;
+    right: 70px;
+    bottom: 50px;
+    z-index: -1;
+    background-size: cover;
+}
+
+.img-2 {
+    background-image: url(./images/meeting.jpg);
+    opacity: 0.5;
+    width: 495px;
+    height: 580px;
+    position: absolute;
+    top: 90px;
+    left: 70px;
+    z-index: -1;
+    background-size: cover;
+}
+
 .title-font {
     background-color: orange;
     color: white;
@@ -10,14 +36,25 @@
     border: solid;
     padding: 10px;
     margin: 16px 10px 28px 10px;
+    background-color: rgb(238, 238, 238);
 }
+
+
 
 #user-form {
     margin-top: 5em;
 }
 
+
 .form-row {
     margin-bottom: 16px;
+}
+
+.border {
+    border: 2px solid black;
+    width: 100%;
+    border-radius: 16px;
+    height: 45px;
 }
 
 .btn {
@@ -40,18 +77,14 @@
     margin: 0 auto;
     width: 80%; 
     height: 35px; 
-    opacity: 0.8;
+    opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
 
-  .slider:hover {
-    opacity: 1;
-  }
-
 .copy-text {
     margin-left: 16px;
-    position: relative;
-    margin-top: 85px;
+    position: fixed;
+    bottom: 0;
 }
 
