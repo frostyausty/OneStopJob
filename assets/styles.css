@@ -20,6 +20,18 @@
     margin-bottom: 16px;
 }
 
+
+.job-data-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: blue;
+}
+
+.job-data-subtitles {
+    color:red;
+}
+
+
 .btn {
     background-color: white;
     font-size: 2em;
@@ -49,7 +61,7 @@
 
 .copy-text {
     margin-left: 16px;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
