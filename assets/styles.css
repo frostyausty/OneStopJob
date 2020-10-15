@@ -20,6 +20,17 @@
     margin-bottom: 16px;
 }
 
-label.title {
-   
+.btn {
+    background-color: white;
+    font-size: 2em;
+    padding: 10px 24px;
+    border-radius: 12px;
+    margin-top: 16px;
 }
+
+.btn:hover {
+    color: white;
+    background-color: orange;
+    border: none;
+}
+
