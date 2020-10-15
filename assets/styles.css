@@ -96,10 +96,3 @@
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
-
-.copy-text {
-    margin-left: 16px;
-    position: fixed;
-    bottom: 0;
-}
-
