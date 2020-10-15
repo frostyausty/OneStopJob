@@ -48,6 +48,10 @@ a, a:hover, a:focus, a:active, a:link {
     color: #000;
 }
 
+a:visited {
+    color: #bf5fff;
+}
+
 .job-post {
     transition: all .2 ease-in-out;
 }
@@ -80,7 +84,7 @@ a, a:hover, a:focus, a:active, a:link {
 }
 
 .job-data-subtitles {
-    color: orange;
+    color: black;
     font-weight: 500;
 }
 
