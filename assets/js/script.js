@@ -63,3 +63,25 @@ userFormEl.addEventListener("submit", formSubmitHandler);
 
 // var location = // Input from location text form
 // var keyword = // Input from job title text form
+
+              
+var host = 'data.usajobs.gov';  
+var userAgent = 'duncanmarten@live.com';  
+var authKey = '7Yq1WCos7rtaXqNELrNjbduX8/DQI/qlCN4S1IPMnVQ=';    
+
+var usaJobs = "https://data.usajobs.gov/api/search?JobCategoryCode=2210&Keyword=" + "Software Developer" + "&LocationName=" + "Madison, WI" + "&api_key=7Yq1WCos7rtaXqNELrNjbduX8/DQI/qlCN4S1IPMnVQ="
+
+
+fetch(usaJobs, {
+    headers: {
+        "Host": host,          
+        "User-Agent": userAgent,          
+        "Authorization-Key": authKey
+    }
+})
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+    console.log(data);
+})
