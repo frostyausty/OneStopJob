@@ -12,6 +12,7 @@ var formSubmitHandler = function(event) {
     var location = userLocationEl.value.trim();
     if (keyword && location) {
         getAdzunaJobs(keyword, location);
+        getUsaJobs(keyword, location);
         userKeywordEl.value = "";
         userLocationEl.value = "";
     }else {
@@ -85,26 +86,78 @@ var getAdzunaJobs = function(keyword, location) {
         });
 };
 
+
+var getUsaJobs = function(keyword, location) {
+
+    // Header variables for USAJobs
+    var host = 'data.usajobs.gov';  
+    var userAgent = 'duncanmarten@live.com';  
+    var authKey = '7Yq1WCos7rtaXqNELrNjbduX8/DQI/qlCN4S1IPMnVQ=';    
+
+    // usajobs url
+    var usaJobs = "https://data.usajobs.gov/api/search?JobCategoryCode=2210&Keyword=" + keyword + "&LocationName=" + location + "&api_key=7Yq1WCos7rtaXqNELrNjbduX8/DQI/qlCN4S1IPMnVQ="
+
+
+    fetch(usaJobs, {
+        headers: {
+            "Host": host,          
+            "User-Agent": userAgent,          
+            "Authorization-Key": authKey
+        }
+    })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data.SearchResult.SearchResultItems);
+        document.querySelector("#job-list-parent").textContent = "";
+                    for (i=0;i<data.SearchResult.SearchResultItems.length;i++) {
+                        var jobPost = document.createElement("div");
+                        jobPost.classList.add("job-post", "job-post-" + i);
+                        jobList.appendChild(jobPost);
+                        var jobTitleEl = document.querySelector(".job-post-" + i);
+
+                        //create post title for each post
+                        var postTitle = document.createElement("div");
+                        postTitle.classList.add("post-title");
+                        jobTitleEl.appendChild(postTitle);
+                        var jobTitle = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionTitle;
+                        postTitle.innerHTML = "<span class='job-data-title'>Job Title: </span>" + jobTitle;
+
+                        //create post organization for each post
+                        var organization = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.OrganizationName;
+                        var jobCompany = document.createElement("div");
+                        jobCompany.classList.add("post-company");
+                        jobTitleEl.appendChild(jobCompany);
+                        jobCompany.innerHTML = "<span class='job-data-subtitles'>Organization: </span>" + organization;
+
+                        //create post salary for each post
+                        var salary = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionRemuneration[0].MinimumRange;
+                        var perTime = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionRemuneration[0].RateIntervalCode;
+                        if (salary === "0"){
+                            salary = "N/A";
+                        };
+                        var jobSalary = document.createElement("div");
+                        jobSalary.classList.add("post-salary");
+                        jobTitleEl.appendChild(jobSalary);
+                        jobSalary.innerHTML = "<span class='job-data-subtitles'>Salary: </span>$" + salary + " " + perTime;
+
+                        //create post location for each post
+                        var location = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionLocationDisplay;
+                        var jobLocation = document.createElement("div");
+                        jobLocation.classList.add("post-location");
+                        jobTitleEl.appendChild(jobLocation);
+                        jobLocation.innerHTML = "<span class='job-data-subtitles'>Location: </span>" + location;
+
+                        //create post description for each post
+                        var jobDescription = document.createElement("div");
+                        jobDescription.classList.add("post-description");
+                        var description = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.UserArea.Details.JobSummary;
+                        jobTitleEl.appendChild(jobDescription);
+                        jobDescription.innerHTML = "<span class='job-data-subtitles'>Description: </span>" + description;
+                    }
+    })
+}
+
 userFormEl.addEventListener("submit", formSubmitHandler);
 
-              
-var host = 'data.usajobs.gov';  
-var userAgent = 'duncanmarten@live.com';  
-var authKey = '7Yq1WCos7rtaXqNELrNjbduX8/DQI/qlCN4S1IPMnVQ=';    
-
-var usaJobs = "https://data.usajobs.gov/api/search?JobCategoryCode=2210&Keyword=" + "Software Developer" + "&LocationName=" + "Madison, WI" + "&api_key=7Yq1WCos7rtaXqNELrNjbduX8/DQI/qlCN4S1IPMnVQ="
-
-
-fetch(usaJobs, {
-    headers: {
-        "Host": host,          
-        "User-Agent": userAgent,          
-        "Authorization-Key": authKey
-    }
-})
-.then(function(response) {
-    return response.json();
-})
-.then(function(data) {
-    console.log(data);
-})
