@@ -57,6 +57,18 @@
     height: 45px;
 }
 
+
+.job-data-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: blue;
+}
+
+.job-data-subtitles {
+    color:red;
+}
+
+
 .btn {
     background-color: white;
     font-size: 2em;
