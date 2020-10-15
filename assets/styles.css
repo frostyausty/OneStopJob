@@ -37,11 +37,14 @@
     border-color: orange;
     border-radius: 15px;
     padding: 10px;
-    margin: 16px 10px 28px 10px;
+    margin: 16px 10% 28px 10%;
     background-color: rgb(238, 238, 238);
 }
 
-
+a {
+    text-decoration: none;
+    color: black;
+}
 
 #user-form {
     margin-top: 5em;
