@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+:root {
+    --primary-color:orange;
+    --secondary-color:#024e76;
+}
 
 .img-1 {
     background-image: url(./images/hands.jpg);
@@ -25,16 +35,18 @@
 }
 
 .title-font {
-    background-color: orange;
+    background-color: var(--primary-color);
+    border-radius: 10px;
     color: white;
     font-size: 70px;
     padding: 170px 1.5em 0.5em 1.5em;
     font-family: 'Bebas Neue', 'arial';
+    text-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
 .job-post {
     border: solid;
-    border-color: orange;
+    border-color: var(--primary-color);
     border-radius: 15px;
     padding: 10px;
     margin: 16px 10% 28px 10%;
@@ -58,16 +70,32 @@ a:visited {
 
 .job-post:hover {
     transform: scale(1.025);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 #user-form {
     margin-top: 5em;
 }
 
-
 .form-row {
     margin-bottom: 16px;
 }
+
+.form-row input {
+    background-color:  rgba(255, 255, 255, .75);
+}
+
+.form-row input[type="text"] {
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.form-row input:focus, .form-row input:hover {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
+
 
 .border {
     border: 2px solid black;
@@ -76,15 +104,15 @@ a:visited {
     height: 45px;
 }
 
-
 .job-data-title {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     color: black;
 }
 
 .job-data-subtitles {
-    color: black;
+    font-size: 18px;
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
@@ -96,12 +124,16 @@ a:visited {
     border-radius: 12px;
     margin-top: 16px;
     margin-bottom: 32px;
+    outline: none;
 }
 
 .btn:hover {
-    color: white;
-    background-color: orange;
+    background-color: var(--primary-color);
+}
+
+.btn:active {
     border: none;
+    outline: none;
 }
 
 .slider {
