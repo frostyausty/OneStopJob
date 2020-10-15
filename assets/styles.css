@@ -9,7 +9,7 @@
 .job-post {
     border: solid;
     padding: 10px;
-    margin: 16px 10px 5px 10px;
+    margin: 16px 10px 28px 10px;
 }
 
 #user-form {
@@ -46,4 +46,10 @@
   .slider:hover {
     opacity: 1;
   }
+
+.copy-text {
+    margin-left: 16px;
+    position: absolute;
+    bottom: 0;
+}
 
