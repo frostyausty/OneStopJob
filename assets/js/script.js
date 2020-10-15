@@ -38,11 +38,17 @@ var getAdzunaJobs = function(keyword, location) {
                         jobList.appendChild(jobPost);
                         var jobTitleEl = document.querySelector(".job-post-" + i);
 
+                        //grabbing post url and creating a link
+                        var aTag = document.createElement("a");
+                        redirectUrl = data.results[i].redirect_url;
+                        aTag.setAttribute("href", redirectUrl);
+                        aTag.setAttribute("target", "blank");
+                        jobTitleEl.appendChild(aTag);
 
                         //create post title for each post
                         var postTitle = document.createElement("div");
                         postTitle.classList.add("post-title");
-                        jobTitleEl.appendChild(postTitle);
+                        aTag.appendChild(postTitle);
                         var jobTitle = data.results[i].title;
                         postTitle.innerHTML = "<span class='job-data-title'>Job Title: </span>" + jobTitle;
 
@@ -51,7 +57,7 @@ var getAdzunaJobs = function(keyword, location) {
                         var company = data.results[i].company.display_name;
                         var jobCompany = document.createElement("div");
                         jobCompany.classList.add("post-company");
-                        jobTitleEl.appendChild(jobCompany);
+                        aTag.appendChild(jobCompany);
                         jobCompany.innerHTML = "<span class='job-data-subtitles'>Company: </span>" + company;
 
 
@@ -62,7 +68,7 @@ var getAdzunaJobs = function(keyword, location) {
                         };
                         var jobSalary = document.createElement("div");
                         jobSalary.classList.add("post-salary");
-                        jobTitleEl.appendChild(jobSalary);
+                        aTag.appendChild(jobSalary);
                         jobSalary.innerHTML = "<span class='job-data-subtitles'>Salary: </span>" + salary;
 
 
@@ -70,16 +76,15 @@ var getAdzunaJobs = function(keyword, location) {
                         var location = data.results[i].location.area[3] + ", " + data.results[i].location.area[1];
                         var jobLocation = document.createElement("div");
                         jobLocation.classList.add("post-location");
-                        jobTitleEl.appendChild(jobLocation);
+                        aTag.appendChild(jobLocation);
                         jobLocation.innerHTML = "<span class='job-data-subtitles'>Location: </span>" + location;
 
                         //create post description for each post
                         var jobDescription = document.createElement("div");
                         jobDescription.classList.add("post-description");
                         var description = data.results[i].description;
-                        jobTitleEl.appendChild(jobDescription);
+                        aTag.appendChild(jobDescription);
                         jobDescription.innerHTML = "<span class='job-data-subtitles'>Description: </span>" + description;
-
                     }
                 });
             };
