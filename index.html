@@ -17,15 +17,25 @@
     </header>
 
     <main>
-        <div>
+        <div class="container has-text-centered ">
+            <!--Form-->
             <form id="user-form">
-                <label for="keyword" class="form-label">Job Title or Keyword: </label>
-                <input name="keyword" id="keyword" type="text">
-                <label for="location" class="form-label">Location: </label>
-                <input name="location" id="location" type="text">
-                <label for="radius" class="form-label">Search Radius :</label>
-                <input class="slider is-fullwidth is-success is-circle" step="1" min="1" max="50" value="25" type="range">
-                <button type="submit" class="btn">Search</button>
+                <div class="form-row">
+                	<label for="keyword" class="form-label is-size-4 label-title">Job Title or Keyword: </label>
+                	<input name="keyword" id="keyword" type="text" class="input is-rounded">
+                </div>
+
+                <div class="form-row">
+                    <label for="location" class="form-label is-size-4 label-title">Location: </label>
+                    <input name="location" id="location" type="text" class="input is-rounded">
+                </div>
+
+                <div class="form-row">
+                    <label for="radius" class="form-label is-size-4 label-title">Search Radius :</label>
+                    <input class="slider is-fullwidth is-success is-circle" step="1" min="1" max="50" value="25" type="range">
+                </div>
+                
+                <button type="submit" class="btn is-size-4">Search</button>
             </form>
         </div>
       <div class="job-list"></div>
