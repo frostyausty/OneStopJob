@@ -123,10 +123,17 @@ var getUsaJobs = function(keyword, location) {
                         usaJobList.appendChild(jobPost);
                         var jobTitleEl = document.querySelector(".usa-job-post-" + i);
 
+                        //grabbing post url and creating a link
+                        var aTag = document.createElement("a");
+                        redirectUrl = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionURI;
+                        aTag.setAttribute("href", redirectUrl);
+                        aTag.setAttribute("target", "blank");
+                        jobTitleEl.appendChild(aTag);
+
                         //create post title for each post
                         var postTitle = document.createElement("div");
                         postTitle.classList.add("post-title");
-                        jobTitleEl.appendChild(postTitle);
+                        aTag.appendChild(postTitle);
                         var jobTitle = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionTitle;
                         postTitle.innerHTML = "<span class='job-data-title'>Job Title: </span>" + jobTitle;
 
@@ -134,7 +141,7 @@ var getUsaJobs = function(keyword, location) {
                         var organization = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.OrganizationName;
                         var jobCompany = document.createElement("div");
                         jobCompany.classList.add("post-company");
-                        jobTitleEl.appendChild(jobCompany);
+                        aTag.appendChild(jobCompany);
                         jobCompany.innerHTML = "<span class='job-data-subtitles'>Organization: </span>" + organization;
 
                         //create post salary for each post
@@ -145,21 +152,21 @@ var getUsaJobs = function(keyword, location) {
                         };
                         var jobSalary = document.createElement("div");
                         jobSalary.classList.add("post-salary");
-                        jobTitleEl.appendChild(jobSalary);
+                        aTag.appendChild(jobSalary);
                         jobSalary.innerHTML = "<span class='job-data-subtitles'>Salary: </span>$" + salary + " " + perTime;
 
                         //create post location for each post
                         var location = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.PositionLocationDisplay;
                         var jobLocation = document.createElement("div");
                         jobLocation.classList.add("post-location");
-                        jobTitleEl.appendChild(jobLocation);
+                        aTag.appendChild(jobLocation);
                         jobLocation.innerHTML = "<span class='job-data-subtitles'>Location: </span>" + location;
 
                         //create post description for each post
                         var jobDescription = document.createElement("div");
                         jobDescription.classList.add("post-description");
                         var description = data.SearchResult.SearchResultItems[i].MatchedObjectDescriptor.UserArea.Details.JobSummary;
-                        jobTitleEl.appendChild(jobDescription);
+                        aTag.appendChild(jobDescription);
                         jobDescription.innerHTML = "<span class='job-data-subtitles'>Description: </span>" + description;
                     }
     })
