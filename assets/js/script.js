@@ -2,6 +2,8 @@
 var userFormEl = document.querySelector("#user-form");
 var userKeywordEl = document.querySelector("#keyword");
 var userLocationEl = document.querySelector("#location");
+var userAdzunaEl = document.querySelector("#adzuna-check");
+var userUsaEl = document.querySelector("#usa-check");
 var adzunaJobList = document.querySelector(".adzuna-job-list");
 var usaJobList = document.querySelector(".usa-job-list");
 
@@ -11,13 +13,39 @@ var formSubmitHandler = function(event) {
     //grab user input for keyword and location of search
     var keyword = userKeywordEl.value.trim();
     var location = userLocationEl.value.trim();
-    if (keyword && location) {
-        getAdzunaJobs(keyword, location);
-        getUsaJobs(keyword, location);
-        userKeywordEl.value = "";
-        userLocationEl.value = "";
-    }else {
 
+    //grap user input for search engines
+    var adzunaEngine = userAdzunaEl.checked;
+    var usaEngine = userUsaEl.checked;
+
+    //verifies the user added a keyword and location
+    if (keyword && location) {
+        //clears page of job posts
+        document.querySelector("#adzuna-job-list-parent").textContent = "";
+        document.querySelector("#usa-job-list-parent").textContent = "";
+
+        //selects which jobs to display based on user input
+        //if user selects both
+        if(adzunaEngine && usaEngine) {
+            getAdzunaJobs(keyword, location);
+            getUsaJobs(keyword, location);
+            userKeywordEl.value = "";
+            userLocationEl.value = "";
+        //if user selects adzuna
+        } if (adzunaEngine && !usaEngine) {
+            getAdzunaJobs(keyword, location);
+            userKeywordEl.value = "";
+            userLocationEl.value = "";
+        //if user selects usa
+        } if (usaEngine && !adzunaEngine) {
+            getUsaJobs(keyword, location);
+            userKeywordEl.value = "";
+            userLocationEl.value = "";
+        //if user selects neither
+        } if (!usaEngine && !adzunaEngine) {
+            alert("Please enter a Job Title and Keyword!");
+        }
+    }else {
         ///////----------CHANGE FROM ALERT BEFORE LAUNCH------------///////
         alert("Please enter a Job Title and Keyword!");
     }
@@ -32,7 +60,7 @@ var getAdzunaJobs = function(keyword, location) {
             if (response.ok) {
                 response.json().then(function(data) {
                     console.log(data.results);
-                    document.querySelector("#adzuna-job-list-parent").textContent = "";
+                    //document.querySelector("#adzuna-job-list-parent").textContent = "";
                     for (i=0;i<data.results.length;i++) {
                         var jobPost = document.createElement("div");
                         jobPost.classList.add("job-post", "adzuna-job-post-" + i);
@@ -116,7 +144,7 @@ var getUsaJobs = function(keyword, location) {
     })
     .then(function(data) {
         console.log(data.SearchResult.SearchResultItems);
-        document.querySelector("#usa-job-list-parent").textContent = "";
+        //document.querySelector("#usa-job-list-parent").textContent = "";
                     for (i=0;i<data.SearchResult.SearchResultItems.length;i++) {
                         var jobPost = document.createElement("div");
                         jobPost.classList.add("job-post", "usa-job-post-" + i);
