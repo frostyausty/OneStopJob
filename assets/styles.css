@@ -9,6 +9,7 @@
     --secondary-color:#024e76;
 }
 
+/*Header styling*/
 .img-1 {
     background-image: url(./images/hands.jpg);
     opacity: 0.5;
@@ -44,6 +45,7 @@
     text-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
+/*Start of job post styling*/
 .job-post {
     border: solid;
     border-color: var(--primary-color);
@@ -51,9 +53,13 @@
     padding: 10px;
     margin: 16px 10% 28px 10%;
     background-color: rgb(238, 238, 238);
+    transition: all .2 ease-in-out;
 }
 
-
+.job-post:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
 
 a, a:hover, a:focus, a:active, a:link {
     text-decoration: none;
@@ -64,15 +70,7 @@ a:visited {
     color: #bf5fff;
 }
 
-.job-post {
-    transition: all .2 ease-in-out;
-}
-
-.job-post:hover {
-    transform: scale(1.025);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-}
-
+/*Form styling*/
 #user-form {
     margin-top: 5em;
 }
@@ -116,7 +114,6 @@ a:visited {
     font-weight: 500;
 }
 
-
 .btn {
     background-color: white;
     font-size: 2em;
@@ -145,3 +142,5 @@ a:visited {
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
+
+
