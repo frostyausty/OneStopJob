@@ -77,7 +77,7 @@ var getAdzunaJobs = function(keyword, location) {
                         var errorPost = document.createElement("div");
                         errorPost.classList.add("job-post");
                         adzunaJobList.appendChild(errorPost);
-                        errorPost.innerHTML = "<h4>There were no jobs found on Adzuna.</h4>"
+                        errorPost.innerHTML = "<h4>There were no  " + keyword + " jobs found on Adzuna.</h4>"
                     }
 
                     // for each job returned create a hyperlinked job post
@@ -169,7 +169,7 @@ var getUsaJobs = function(keyword, location) {
             var errorPost = document.createElement("div");
             errorPost.classList.add("job-post");
             usaJobList.appendChild(errorPost);
-            errorPost.innerHTML = "<h4>There were no jobs found on USAJobs.</h4>"
+            errorPost.innerHTML = "<h4>There were no  " + keyword + " jobs found on USAJobs.</h4>"
         }
 
         // for each job returned create a hyperlinked job post
