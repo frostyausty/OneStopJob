@@ -35,6 +35,15 @@
     background-size: cover;
 }
 
+.title-font {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    color: white;
+    font-size: 50px;
+    padding: 100px 1.5em 0.5em 1.5em;
+    font-family: 'Bebas Neue', 'arial';
+    text-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
 
 
 /*Start of job post styling*/
