@@ -1,4 +1,3 @@
-
 var userFormEl = document.querySelector("#user-form");
 var userKeywordEl = document.querySelector("#keyword");
 var userLocationEl = document.querySelector("#location");
