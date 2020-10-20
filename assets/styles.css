@@ -87,8 +87,6 @@ a:visited {
     outline: none;
 }
 
-
-
 .border {
     border: 2px solid black;
     width: 100%;
@@ -125,6 +123,12 @@ a:visited {
 .btn:active {
     border: none;
     outline: none;
+}
+
+.modal-content p {
+    color: white;
+    text-align: center;
+    font-size: 25px;
 }
 
 /*
