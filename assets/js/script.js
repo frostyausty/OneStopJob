@@ -71,6 +71,8 @@ var getAdzunaJobs = function(keyword, location) {
             if (response.ok) {
                 response.json().then(function(data) {
                     
+                    console.log(data.results)
+
                     // if no jobs found
                     if (data.results.length === 0) {
                         var errorPost = document.createElement("div");
@@ -121,7 +123,12 @@ var getAdzunaJobs = function(keyword, location) {
 
 
                         //create post location for each post
-                        var location = data.results[i].location.area[3] + ", " + data.results[i].location.area[1];
+                        if (data.results[i].location.area[3]) {
+                            var location = data.results[i].location.area[3] + ", " + data.results[i].location.area[1];
+                        }
+                        else {
+                            var location = data.results[i].location.area[2] + ", " + data.results[i].location.area[1];
+                        }
                         var jobLocation = document.createElement("div");
                         jobLocation.classList.add("post-location");
                         aTag.appendChild(jobLocation);
@@ -162,7 +169,7 @@ var getUsaJobs = function(keyword, location) {
         return response.json();
     })
     .then(function(data) {
-        
+
         // if no jobs found
         if (data.SearchResult.SearchResultCount === 0) {
             var errorPost = document.createElement("div");
