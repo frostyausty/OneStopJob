@@ -15,7 +15,6 @@ var modalStart = function() {
 // function to make modal disappear
 var modalEnd = function(event) {
     event.preventDefault();
-    console.log("modal-end");
     document.querySelector("#modal").classList.remove("is-active");
 };
 
