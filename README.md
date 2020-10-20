@@ -2,7 +2,7 @@
 
 ## Description
 
-![Screenshot of One Stop Job](assets/images/screenshot.png)
+![Screenshot of One Stop Job](assets/images/Screenshot.png)
 
 ### Purpose
 
