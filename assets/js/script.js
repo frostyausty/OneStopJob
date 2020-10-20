@@ -70,8 +70,6 @@ var getAdzunaJobs = function(keyword, location) {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    
-                    console.log(data.results)
 
                     // if no jobs found
                     if (data.results.length === 0) {
